@@ -12,7 +12,6 @@ yarn install
 #### 2. 开启安卓虚拟机Genymotion或Android Studio自带的(建议使用Genymotion)
 
 #### 3. 启动服务
-
 ```
 yarn react-native start
 ```
@@ -22,6 +21,8 @@ yarn react-native start
 ```
 yarn android
 ```
+
+注意：如果执行第4步报错，请先用Android Studio启动一次。启动方法：使用Android Studio打开项目目录中的 android/app目录，点击运行
 
 ## 完整流程（从新建项目开始,过程相对复杂）
 
