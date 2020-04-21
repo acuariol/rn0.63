@@ -5,19 +5,19 @@
 ![首页](http://acuario.cn/screenshot/rn_homePage.png)
 
 ## 项目启动
-##### 1. 进入项目根目录安装依赖
+#### 1. 进入项目根目录安装依赖
 ```
 yarn install
 ```
-##### 2. 开启安卓虚拟机Genymotion或Android Studio自带的(建议使用Genymotion)
+#### 2. 开启安卓虚拟机Genymotion或Android Studio自带的(建议使用Genymotion)
 
-##### 3. 启动服务
+#### 3. 启动服务
 
 ```
 yarn react-native start
 ```
 
-##### 4. 安装app到虚拟机
+#### 4. 安装app到虚拟机
 
 ```
 yarn android
