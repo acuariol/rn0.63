@@ -2,7 +2,7 @@
 #### RN版本0.63.0-rc.0。
 #### 集成NativeBase组件库。
 
-![首页](./screenshot/homePage.PNG)
+![首页](http://acuario.cn/screenshot/rn_homePage.png)
 
 ## 项目启动
 ##### 1. 进入项目根目录安装依赖
@@ -37,12 +37,16 @@ yarn android
 
 
 等待构建完成后，点击Android Studio上的运行按钮，等待Android Studio构建，构建完后会启动安卓模拟器，
-此时会报错，该错主要是未启动服务导致的。退出应用，在项目根目录下打开
-命令行窗口执行yarn react-native start待服务启动后，再开一个命令行窗口执行
+此时会报错，该错主要是未启动服务导致的。终止印象，在项目根目录下打开
+命令行窗口执行yarn react-native start待服务启动后，再点击Android Studio上的运行，或再开一个命令行窗口执行
 yarn android即可。
 
 另外需要注意的是，如果在启动时报错了，大多是安装了新的依赖
 仔细查看依赖的安装说明，无误后同样的使用Android Studio打开项目目录中的 android/app目录，
 等待gradle构建，等待构建完成后，点击Android Studio上的运行按钮，继续等待完成编译即可。
 重新按顺序分开执行yarn react-native start和yarn android命令
+
+如果要在Android Studio上运行应用：
+1.使用Android Studio打开项目下的android/app目录
+2.在目录下执行yarn react-native start启动服务后再点击运行
 
