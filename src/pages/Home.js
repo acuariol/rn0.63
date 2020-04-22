@@ -17,13 +17,15 @@ import {
   Right,
 } from 'native-base';
 
+import { connect } from 'react-redux';
+
 const dataArray = [
-  { title: "First Element", content: "Lorem ipsum dolor sit amet" },
-  { title: "Second Element", content: "Lorem ipsum dolor sit amet" },
-  { title: "Third Element", content: "Lorem ipsum dolor sit amet" }
+  { title: 'First Element', content: 'Lorem ipsum dolor sit amet' },
+  { title: 'Second Element', content: 'Lorem ipsum dolor sit amet' },
+  { title: 'Third Element', content: 'Lorem ipsum dolor sit amet' },
 ];
 
-const BUTTONS = ["Option 0", "Option 1", "Option 2", "Delete", "Cancel"];
+const BUTTONS = ['Option 0', 'Option 1', 'Option 2', 'Delete', 'Cancel'];
 const DESTRUCTIVE_INDEX = 3;
 const CANCEL_INDEX = 4;
 
@@ -36,7 +38,7 @@ class Home extends Component {
 
   render() {
 
-    const {navigation} = this.props
+    const { navigation, todos, dispatch } = this.props;
     return (
       <Container>
         <Header>
@@ -52,9 +54,18 @@ class Home extends Component {
         </Header>
         <View style={{ flex: 1, padding: 6, backgroundColor: '#e1e1e1' }}>
           <Text>内容区域</Text>
+          <Text style={{paddingTop:8,paddingBottom:8}}>TODOS: {todos.join()}</Text>
 
           <Button
-            onPress={() => navigation.navigate('Guide')}>
+            onPress={() => dispatch({ type: 'ADD_TODO', text: '听歌' })}
+            style={{marginBottom:8}}
+          >
+            <Text>Add Todos</Text>
+          </Button>
+
+          <Button
+            onPress={() => navigation.navigate('Guide')}
+          >
             <Text>Go to Guide</Text>
           </Button>
 
@@ -67,11 +78,11 @@ class Home extends Component {
                   options: BUTTONS,
                   cancelButtonIndex: CANCEL_INDEX,
                   destructiveButtonIndex: DESTRUCTIVE_INDEX,
-                  title: "Testing ActionSheet"
+                  title: 'Testing ActionSheet',
                 },
                 buttonIndex => {
                   this.setState({ clicked: BUTTONS[buttonIndex] });
-                }
+                },
               )}
           >
             <Text>Actionsheet</Text>
@@ -91,4 +102,11 @@ class Home extends Component {
 
 }
 
-export default Home;
+
+const mapStateToProps = (state) => {
+  return {
+    todos: state,
+  };
+};
+
+export default connect(mapStateToProps)(Home);

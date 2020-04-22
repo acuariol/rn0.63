@@ -1,6 +1,8 @@
-#### 开箱即用的React Native应用，避免无需复杂的配置和踩坑。
+# 开箱即用的React Native应用，避免无需复杂的配置和踩坑。
 #### RN版本0.63.0-rc.0。
 #### 集成NativeBase组件库。
+#### 使用react-redux管理状态
+#### 使用react-navigation导航页面
 
 ![首页](http://acuario.cn/screenshot/rn_homePage.png)
 
@@ -51,3 +53,103 @@ yarn android即可。
 1.使用Android Studio打开项目下的android/app目录
 2.在目录下执行yarn react-native start启动服务后再点击运行
 
+## 附:
+
+### React Native中使用Redux
+
+包:
+
+```
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0"
+```
+
+#### 1. 最基本的集成redux的配置
+
+首先，在App.js项目入口文件引入redux和react-redux
+
+```
+    import {createStore} from 'redux';
+    import {Provider} from 'react-redux';
+```
+
+然后使用createStore创建应用总store，并在应用最外层包裹Provider组件
+
+```
+    const store = createStore(todoApp);
+    
+    export default class App extends React.Component {
+      render() {
+        return (
+          <Provider store={store}>
+            <App />
+          </Provider>
+        );
+      }
+    }
+```
+
+2. 加入异步action支持
+
+加入异步action的支持，需要加入redux的中间件redux-thunk，应用中间件的方法是使用redux提供的 applyMiddleware
+
+```
+import {createStore,applyMiddleware} from 'redux';
+import thunkMiddleware from 'redux-thunk';
+const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+```
+
+3. store持久化配置 (可选)
+
+如果想要持久保存一部分应用状态，需要引入另一个中间件redux-persist
+
+
+```
+import React from 'react';
+import {AsyncStorage} from 'react-native';
+import {Provider} from 'react-redux';
+import {createStore,applyMiddleware} from 'redux';
+import AppReducer from './reducers/index';
+import AppWithNavigationState from './navigators/AppNavigator';
+import thunkMiddleware from 'redux-thunk';
+import {persistStore, persistReducer} from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
+
+const config = {
+    key: 'Root',
+    storage:AsyncStorage,
+    whitelist: ['login'] //配置想要持久化的部分store
+};
+
+function configureStore(){
+    let reducer = persistReducer(config, AppReducer);
+    let store = createStore(reducer, applyMiddleware(thunkMiddleware));
+    let persistor = persistStore(store);
+    return { persistor, store }
+}
+
+export default class App extends React.Component {
+  render() {
+    const { persistor, store } = configureStore();
+    return (
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <AppWithNavigationState />
+        </PersistGate>
+      </Provider>
+    );
+  }
+}
+```
+
+更多的详细配置信息可以去官方文档查看
+
+react-redux: https://react-redux.js.org/
+
+redux-thunk: https://github.com/reduxjs/redux-thunk
+
+redux-persist: https://github.com/rt2zz/redux-persist
+
+参考知乎文章：https://zhuanlan.zhihu.com/p/48560902
