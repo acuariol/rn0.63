@@ -13,7 +13,7 @@ yarn install
 ```
 #### 2. 开启安卓虚拟机Genymotion或Android Studio自带的(建议使用Genymotion)
 
-#### 3.使用Android Studio打开根目录android/app目录，运行一次，编译过程中不报错，提示安装成功即可，
+#### 3.使用Android Studio打开根目录android/app目录，运行一次，编译过程中不报错，提示安装成功即可（可选）
 
 #### 4. 启动服务（根目录运行）
 ```
