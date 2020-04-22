@@ -1,4 +1,4 @@
-# 开箱即用的React Native应用，避免无需复杂的配置和踩坑。
+# 开箱即用的React Native应用，避免复杂的配置和踩坑。
 #### RN版本0.63.0-rc.0。
 #### 集成NativeBase组件库。
 #### 使用react-redux管理状态
