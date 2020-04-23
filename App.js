@@ -9,17 +9,9 @@ import thunk from 'redux-thunk';
 
 import HomeScreen from './src/pages/Home';
 import GuideScreen from './src/pages/Guide';
+import todoApp from './src/store/reducers'
 
-function todos(state = ['7:30起床'], action) {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return state.concat([action.text]);
-    default:
-      return state;
-  }
-}
-
-const store = createStore(todos, applyMiddleware(thunk));
+const store = createStore(todoApp, applyMiddleware(thunk));
 
 const Stack = createStackNavigator();
 
@@ -36,7 +28,6 @@ class App extends React.Component {
           </NavigationContainer>
         </Root>
       </Provider>
-
     );
   }
 }

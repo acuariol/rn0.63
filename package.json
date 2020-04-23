@@ -17,6 +17,7 @@
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "native-base": "^2.13.12",
+    "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-native": "0.63.0-rc.0",
     "react-native-gesture-handler": "^1.6.1",
