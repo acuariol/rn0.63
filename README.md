@@ -55,6 +55,15 @@ yarn android即可。
 1.使用Android Studio打开项目下的android/app目录
 2.在目录下执行yarn react-native start启动服务后再点击运行
 
+
+注意：由于安装了react-native-vector-icons图标库，需要在项目目录下的android/app/build.gradle文件中加入以下代码
+
+```
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+```
+
+
+
 ## 附:
 
 ### React Native中使用Redux
