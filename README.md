@@ -62,6 +62,22 @@ yarn android即可。
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 ```
 
+#### 如果遇到这个错误:
+
+![首页](http://acuario.cn/screenshot/error/rn_error_1.png) 
+
+则是没启动服务的原因
+
+运行
+```
+yarn react-native start
+```
+或
+```
+npm start
+```
+Reload下即可
+
 
 
 ## 附:
