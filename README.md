@@ -26,11 +26,11 @@ yarn react-native start
 yarn android
 ```
 
-注意：如报错可尝试将第4步和第五步可互换顺序运行，如还保存请先用Android Studio启动一次。启动方法：使用Android Studio打开项目目录中的 android/app目录，点击运行
+注意：如报错可尝试将第4步和第五步可互换顺序运行，如还报错请先用Android Studio启动一次。启动方法：使用Android Studio打开项目目录中的 android/app目录，点击运行
 
 ## 完整流程（从新建项目开始,过程相对复杂）
 
-如歌你想从零开始搭建一个react native应用，这会是一个不错的指导
+如果你想从零开始搭建一个react native应用，这会是一个不错的指导
 
 该教程官网有详细的介绍，这里就不赘述了。提几点遇到的坑和注意的事项。
 
